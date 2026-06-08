@@ -412,10 +412,6 @@
             box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
         }
 
-        .btn-register.registered {
-            background: #10b981;
-        }
-
         /* Modal */
         .modal-overlay {
             position: fixed;
@@ -702,19 +698,6 @@
             }
         }
 
-        /* Loading Skeleton */
-        .skeleton {
-            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-            border-radius: 12px;
-        }
-
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
         /* Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -758,7 +741,7 @@
             </div>
             <div class="stat-info">
                 <h4>Total Event</h4>
-                <p id="totalEvents">0</p>
+                <p id="totalEvents">6</p>
             </div>
         </div>
         <div class="stat-card">
@@ -767,7 +750,7 @@
             </div>
             <div class="stat-info">
                 <h4>Total Peserta</h4>
-                <p id="totalPeserta">0</p>
+                <p id="totalPeserta">2.480</p>
             </div>
         </div>
         <div class="stat-card">
@@ -776,7 +759,7 @@
             </div>
             <div class="stat-info">
                 <h4>Kategori</h4>
-                <p id="totalKategori">0</p>
+                <p id="totalKategori">4</p>
             </div>
         </div>
     </div>
@@ -866,16 +849,16 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <script>
-        // Data Statis - Event & Seminar
+        // DATA PERMANEN - Hardcoded, tidak tersimpan di mana pun
         const eventsData = [
             {
                 id: 1,
                 title: "Indonesia Tech Summit 2024",
-                description: "Konferensi teknologi terbesar di Indonesia membahas AI, Cloud Computing, dan Web3. Hadir dengan pembicara internasional.",
+                description: "Konferensi teknologi terbesar di Indonesia membahas AI, Cloud Computing, dan Web3. Hadir dengan pembicara internasional dari Google, Microsoft, dan AWS.",
                 category: "Tech",
                 date: "2024-07-15",
-                time: "09:00 - 17:00",
-                location: "Jakarta Convention Center",
+                time: "09:00 - 17:00 WIB",
+                location: "Jakarta Convention Center, Senayan",
                 price: 750000,
                 originalPrice: 1000000,
                 image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
@@ -886,11 +869,11 @@
             {
                 id: 2,
                 title: "Digital Marketing Masterclass",
-                description: "Pelajari strategi marketing digital terkini dari praktisi industri. Fokus pada SEO, SEM, dan Social Media Marketing.",
+                description: "Pelajari strategi marketing digital terkini dari praktisi industri. Fokus pada SEO, SEM, Social Media Marketing, dan Growth Hacking.",
                 category: "Marketing",
                 date: "2024-07-20",
-                time: "13:00 - 18:00",
-                location: "Online (Zoom)",
+                time: "13:00 - 18:00 WIB",
+                location: "Online via Zoom Meeting",
                 price: 350000,
                 originalPrice: 500000,
                 image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800",
@@ -901,11 +884,11 @@
             {
                 id: 3,
                 title: "UI/UX Design Workshop",
-                description: "Workshop praktis mendesain antarmuka pengguna yang menarik. Menggunakan Figma dan prinsip design thinking.",
+                description: "Workshop praktis mendesain antarmuka pengguna yang menarik. Menggunakan Figma, Adobe XD, dan prinsip design thinking modern.",
                 category: "Design",
                 date: "2024-07-25",
-                time: "10:00 - 16:00",
-                location: "Bandung Creative Hub",
+                time: "10:00 - 16:00 WIB",
+                location: "Bandung Creative Hub, Dago",
                 price: 450000,
                 originalPrice: 600000,
                 image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800",
@@ -916,11 +899,11 @@
             {
                 id: 4,
                 title: "Startup Founder Meetup",
-                description: "Networking event untuk founder startup. Sharing session dengan investor dan mentor bisnis ternama.",
+                description: "Networking event eksklusif untuk founder startup. Sharing session dengan investor dari East Ventures dan Alpha JWC Ventures.",
                 category: "Business",
                 date: "2024-08-05",
-                time: "18:00 - 21:00",
-                location: "Surabaya Co-working Space",
+                time: "18:00 - 21:00 WIB",
+                location: "Surabaya Co-working Space, Rungkut",
                 price: 150000,
                 originalPrice: 200000,
                 image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800",
@@ -931,11 +914,11 @@
             {
                 id: 5,
                 title: "Cybersecurity Fundamentals",
-                description: "Seminar keamanan siber untuk pemula. Memahami ancaman digital dan cara melindungi data organisasi.",
+                description: "Seminar keamanan siber untuk pemula hingga menengah. Memahami ancaman digital, ethical hacking, dan cara melindungi data organisasi.",
                 category: "Tech",
                 date: "2024-08-10",
-                time: "09:00 - 15:00",
-                location: "Online (Zoom)",
+                time: "09:00 - 15:00 WIB",
+                location: "Online via Zoom Meeting",
                 price: 200000,
                 originalPrice: 350000,
                 image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800",
@@ -946,11 +929,11 @@
             {
                 id: 6,
                 title: "Brand Strategy Workshop",
-                description: "Membangun brand yang kuat dan berkesan. Studi kasus dari brand-brand ternama Indonesia.",
+                description: "Membangun brand yang kuat dan berkesan. Studi kasus dari brand-brand ternama Indonesia seperti Gojek, Tokopedia, dan Blibli.",
                 category: "Marketing",
                 date: "2024-08-15",
-                time: "10:00 - 17:00",
-                location: "Yogyakarta Creative Center",
+                time: "10:00 - 17:00 WIB",
+                location: "Yogyakarta Creative Center, Malioboro",
                 price: 550000,
                 originalPrice: 750000,
                 image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800",
@@ -960,11 +943,10 @@
             }
         ];
 
-        // State
+        // State sementara (tidak tersimpan, reset saat refresh)
         let currentFilter = 'all';
         let currentView = 'grid';
         let searchQuery = '';
-        let registeredEvents = new Set();
         let selectedEventId = null;
 
         // DOM Elements
@@ -976,7 +958,6 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             renderEvents();
-            updateStats();
             setupEventListeners();
         });
 
@@ -1064,10 +1045,9 @@
 
             container.innerHTML = filtered.map(event => {
                 const date = formatDate(event.date);
-                const isRegistered = registeredEvents.has(event.id);
                 
                 return `
-                    <div class="event-card ${currentView === 'list' ? 'list-view' : ''}" data-aos="fade-up">
+                    <div class="event-card ${currentView === 'list' ? 'list-view' : ''}">
                         <div class="event-image">
                             <img src="${event.image}" alt="${event.title}" loading="lazy">
                             <span class="event-badge ${event.badge}">${event.badgeText}</span>
@@ -1090,46 +1070,14 @@
                                     ${formatRupiah(event.price)}
                                     <span class="original">${formatRupiah(event.originalPrice)}</span>
                                 </div>
-                                <button class="btn-register ${isRegistered ? 'registered' : ''}" 
-                                        onclick="${isRegistered ? '' : `openModal(${event.id})`}"
-                                        ${isRegistered ? 'disabled' : ''}>
-                                    <i class="fas ${isRegistered ? 'fa-check' : 'fa-ticket-alt'}"></i>
-                                    ${isRegistered ? 'Terdaftar' : 'Daftar'}
+                                <button class="btn-register" onclick="openModal(${event.id})">
+                                    <i class="fas fa-ticket-alt"></i> Daftar
                                 </button>
                             </div>
                         </div>
                     </div>
                 `;
             }).join('');
-        }
-
-        // Update Stats
-        function updateStats() {
-            const totalEvents = eventsData.length;
-            const totalPeserta = eventsData.reduce((sum, e) => sum + e.attendees, 0);
-            const categories = [...new Set(eventsData.map(e => e.category))].length;
-
-            animateValue('totalEvents', 0, totalEvents, 1000);
-            animateValue('totalPeserta', 0, totalPeserta, 1500);
-            animateValue('totalKategori', 0, categories, 800);
-        }
-
-        // Animate Number
-        function animateValue(id, start, end, duration) {
-            const obj = document.getElementById(id);
-            const range = end - start;
-            const increment = end > start ? 1 : -1;
-            const stepTime = Math.abs(Math.floor(duration / range));
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment * Math.ceil(range / (duration / 16));
-                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-                    current = end;
-                    clearInterval(timer);
-                }
-                obj.textContent = current.toLocaleString('id-ID');
-            }, 16);
         }
 
         // Modal Functions
@@ -1158,17 +1106,9 @@
                 return;
             }
 
-            // Simulate registration
-            registeredEvents.add(selectedEventId);
-            
-            // Update attendees count
             const event = eventsData.find(e => e.id === selectedEventId);
-            event.attendees++;
-            
             showToast(`Berhasil mendaftar di ${event.title}!`, 'success');
             closeModal();
-            renderEvents();
-            updateStats();
         }
 
         // Toast Notification
@@ -1201,31 +1141,6 @@
                 setTimeout(() => toast.remove(), 400);
             }, 3000);
         }
-
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe cards after render
-        setTimeout(() => {
-            document.querySelectorAll('.event-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
-        }, 100);
     </script>
 </body>
 </html>
